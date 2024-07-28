@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { View, ActivityIndicator, FlatList } from "react-native";
 import { getLatestGames } from "../lib/metacritic";
@@ -27,6 +28,7 @@ export function Main() {
         }
        } >
         <MyLogo />
+        <Link href={'/about'} className="text-blue-400 text-xl"> Ir al about </Link>
        </View>
      
         {
