@@ -1,25 +1,37 @@
 import { useEffect, useRef } from "react";
-import { View, StyleSheet, Image, Text, Animated } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  Animated,
+  Pressable,
+} from "react-native";
 import { Score } from "./Score";
+import { Link } from "expo-router";
+import { styled } from "nativewind";
+
+const StyledPressable = styled(Pressable);
 
 export function GameCard({ game }) {
   return (
-    <View
-      key={game.slug}
-      className="bg-slate-500/10 rounded-xl gap-4 mb-10 flex-row "
-    >
-      <Image source={{ uri: game.image }} style={styles.image} />
-      <View>
-        <Text style={styles.title}>{game.title}</Text>
-        {/* <Text className="mb-1" style={styles.score}>
+    <Link href={`/${game.slug}`} asChild>
+      <StyledPressable className="active:opacity-70 border border-black active:border-white/50 mb-2 bg-gray-500/10 rounded-xl p-4  ">
+        <View key={game.slug} className="gap-4 flex-row ">
+          <Image source={{ uri: game.image }} style={styles.image} />
+          <View className="flex-shrink">
+            <Text style={styles.title}>{game.title}</Text>
+            {/* <Text className="mb-1" style={styles.score}>
           {game.score}
         </Text> */}
-        <Score score={game.score} maxScore={100} />
-        <Text className="mt-2 flex-shrink-0 " style={styles.description}>
-          {game.description.slice(0, 100)}
-        </Text>
-      </View>
-    </View>
+            <Score score={game.score} maxScore={100} />
+            <Text className="mt-2 flex-shrink-0 " style={styles.description}>
+              {game.description.slice(0, 100)}
+            </Text>
+          </View>
+        </View>
+      </StyledPressable>
+    </Link>
   );
 }
 
