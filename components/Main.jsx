@@ -6,7 +6,7 @@ import { getLatestGames } from "../lib/metacritic";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AnimatedGameCard } from "./GameCard";
 import { MyLogo } from "./Logo";
-import { FontAwesome5 } from '@expo/vector-icons';
+import { CircleInfoIcon } from "./Icons";
 
 export function Main() {
   const [games, setGames] = useState([]);
@@ -32,7 +32,7 @@ export function Main() {
         <Link asChild href={'/about'} className="text-blue-400 text-xl">
         <Pressable>
           {/* <FontAwesome5 name="home" size={24} color="white" /> */}
-          <FontAwesome5 name="info-circle" size={24} color="white" />
+          <CircleInfoIcon />
         </Pressable>
         </Link>
        </View>
