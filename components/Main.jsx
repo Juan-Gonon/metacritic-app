@@ -23,19 +23,18 @@ export function Main() {
         paddingTop: insets.top,
         paddingBottom: insets.bottom
     }} >
-       <View style={
-        {
-          marginBottom: 20
-        }
-       } >
-        <MyLogo />
-        <Link asChild href={'/about'} className="text-blue-400 text-xl">
-        <Pressable>
-          {/* <FontAwesome5 name="home" size={24} color="white" /> */}
-          <CircleInfoIcon />
-        </Pressable>
-        </Link>
-       </View>
+          <View className={"flex-row justify-between items-center mb-4 mx-2 "}>
+            <View >
+              <MyLogo />
+              </View>
+
+          <Link asChild href={'/about'} className="text-blue-400 text-xl">
+          <Pressable>
+            {/* <FontAwesome5 name="home" size={24} color="white" /> */}
+            <CircleInfoIcon />
+          </Pressable>
+          </Link>
+        </View>
      
         {
           games.length === 0
