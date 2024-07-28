@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { Link } from "expo-router";
 import { useEffect, useState } from "react";
-import { View, ActivityIndicator, FlatList } from "react-native";
+import { View, ActivityIndicator, FlatList, Pressable } from "react-native";
 import { getLatestGames } from "../lib/metacritic";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AnimatedGameCard } from "./GameCard";
 import { MyLogo } from "./Logo";
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export function Main() {
   const [games, setGames] = useState([]);
@@ -28,7 +29,12 @@ export function Main() {
         }
        } >
         <MyLogo />
-        <Link href={'/about'} className="text-blue-400 text-xl"> Ir al about </Link>
+        <Link asChild href={'/about'} className="text-blue-400 text-xl">
+        <Pressable>
+          {/* <FontAwesome5 name="home" size={24} color="white" /> */}
+          <FontAwesome5 name="info-circle" size={24} color="white" />
+        </Pressable>
+        </Link>
        </View>
      
         {
